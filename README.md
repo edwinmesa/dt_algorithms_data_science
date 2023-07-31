@@ -1,5 +1,5 @@
-## Information 
-
+# Information 
+#### This is a guide for review of code.
 
 
 ##  Comprehension List
