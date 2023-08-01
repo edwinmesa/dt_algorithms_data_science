@@ -68,3 +68,48 @@ print(f"{even}: numbers are even")
 print(f"{odd}: numbers are odd")
 print("Time Complexity: O(n)")
 print('#' * 80)
+
+# Array Filtering using a Loop
+# This example filters an array to keep only elements greater than a given threshold.
+
+def filter_array(arr, threshold):
+    filtered_arr = []
+    for elem in arr:
+        if elem > threshold:
+            filtered_arr.append(elem)
+    return filtered_arr
+
+# Example usage
+array           = [10, 20, 5, 30, 15, 25]
+threshold_value = 15
+filtered_array  = filter_array(array, threshold_value)
+print(f"Original array: {array}")
+print(f"Filtered array (elements greater than {threshold_value}): {filtered_array}")
+print("Time Complexity: O(n)")
+print('#' * 80)
+
+# Removing Duplicates from an Array using a Loop
+# This example removes duplicate elements from an array using a loop.
+def remove_duplicates(arr):
+    unique_arr = []
+    for num in arr:
+        if not any([num == x for x in unique_arr]):   # check whether the
+        #   if num not in unique_arr: 
+            unique_arr.append(num)                  # element already exists or not
+    return unique_arr
+
+# Example usage
+array        = [1, 2, 2, 3, 3, 3, 4, 5, 5]
+unique_array = remove_duplicates(array)
+print(f"Array with duplicates removed: {unique_array}")
+print(f"Original array: {array}")
+print("Time Complexity: O(n)")
+print('#' * 80)
+
+# Array Sorting using a Loop
+# This example sorts an array in ascending order using a loop.
+def selection_sort(arr):
+    for i in range(len(arr)):
+        min_index = i
+        for j in range(i+1, len(arr)):
+            

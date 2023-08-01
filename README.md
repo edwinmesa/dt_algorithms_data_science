@@ -49,4 +49,4 @@ Loops combined with the range function are useful for creating countdowns, timer
 When working with strings, loops can be utilized to access each character and perform specific operations based on string length or content.
 
 ### Common Examples:
-- **sum_array_elements**, **find_max_min_elements**, **reverse_array**
+- **sum_array_elements**, **find_max_min_elements**, **reverse_array**, **filter_array**,**remove_duplicates**
