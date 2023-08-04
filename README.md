@@ -14,6 +14,8 @@
 - Combining lists: When you need to combine elements from multiple lists into a new list, list comprehensions can help you create pairs, tuples, or other combinations.
 
 - Handling nested lists: List comprehensions can handle nested lists, making it easier to flatten lists, perform operations on sublists, or create complex structures like matrices.
+### Common Examples:
+
 
 ##  Loops 
 ### Big O Notation Complexity: O(n) - O(n^2) - O(Log n)
@@ -49,4 +51,4 @@ Loops combined with the range function are useful for creating countdowns, timer
 When working with strings, loops can be utilized to access each character and perform specific operations based on string length or content.
 
 ### Common Examples:
-- **sum_array_elements**, **find_max_min_elements**, **reverse_array**, **filter_array**,**remove_duplicates**
+- **sum_array_elements**, **find_max_min_elements**, **reverse_array**, **filter_array**,**remove_duplicates**, **selection_sort**,**concatenate_arrays**,**sum_2d_array**,**sum_2d_array**,**fibonacci_sequence**,**Multiplication Matrix**,**generate_pascals_triangle**,**collatz_conjecture_sequence**,**reverse_string**,**count_character_frequency**,**binary_search**,**generate_power_sets**,**transpose_matrix**,**caesar_cipher_encrypt**,**left_rotate_array**,**search_element**,**right_shift_array**,**chunk_array**
