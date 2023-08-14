@@ -86,3 +86,27 @@ print('#' * 80)
 strings         = ["apple", "banana", "Orange", "kiwi", "pear"]
 upper_str       = [string.upper() for string in strings if not string.lower().startswith(('a','e','i','o','u'))]
 print("Upper Case:", upper_str)
+print('#' * 80)
+
+# Replacing negative numbers with zero:
+nums            = [1,-2,-3,-4, 5]
+non_negatives   = [num if num >= 0 else 0 for num in nums]
+print(non_negatives)
+print('#' * 80)
+
+# Comparing elements in two lists and performing operations:
+list1               = [1, 2, 3, 4, 5]
+list2               = [3, 4, 5, 6, 7]
+greater_than_list_2 = [x for x in list1 if any(x > y for y in list2)]
+print(greater_than_list_2)
+# Output: [4, 5]
+print('#' * 80)
+
+# Applying a function to elements and replacing them
+def square(x):
+    return x ** 2
+
+numbers = [1, 2, 3, 4, 5]
+squared_numbers = [square(num) for num in numbers]
+print(squared_numbers)
+# Output: [1, 4, 9, 16, 25]
