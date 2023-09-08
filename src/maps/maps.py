@@ -70,11 +70,11 @@ factorials = map(factorial, numbers)
 print("list factorial: ", list(factorials))
 print("Time Complexity: O(n)")
 print('#' * 80)
+
 # Using map() with multiple iterables of different lengths
 names       = ['Alice', 'Bob', 'Charlie']
 ages        = [25, 30, 27, 22, 35]
 countries   = ['USA', 'Canada', 'UK']
-
 # Zip the iterables and combine their elements using a lambda function
 result      = map(lambda x :f"Name: {x[0]}, Age: {x[1]}, Country: {x[2]}", zip(names, ages, countries))
 print("Combines with Map and Zip:", list(result))
@@ -82,3 +82,90 @@ print("Time Complexity: O(n)")
 print('#' * 80)
 
 #  Mapping multiple functions on a list of numbers
+numbers = [1, 2, 3, 4, 5]
+
+def add_one(x):
+    return x + 1
+
+def square(x):
+    return x ** 2
+
+def cube(x):
+    return x ** 3
+
+# Apply multiple functions using a lambda function with map()
+result = map(lambda x : (x, add_one(x), square(x), cube(x)), numbers)
+print("map multiple functions", list(result))
+print("Time Complexity: O(n)")
+print('#' * 80)
+
+# Using map() to convert a list of Celsius temperatures to Fahrenheit
+celsius_temperatures = [0, 20, 35, 15]
+
+def celsius_to_fahrenheit(celsius):
+    return (celsius * 9/5) + 32
+
+farenheit_temp = map(celsius_to_fahrenheit, celsius_temperatures)
+print('Farenheit Temperature:', list(farenheit_temp))
+print("Time Complexity: O(n)")
+print('#' * 80)
+
+# Applying a series of transformations on a list of strings using map()
+words = ['hello', 'world', 'python', 'programming']
+# Combine various string transformations using a lambda function with map()
+transformed_words = map(lambda x : x.upper()[::-1], words)
+print("transformed words",list(transformed_words))
+print("Time Complexity: O(n)")
+print('#' * 80)
+
+# Using map() with complex numbers to calculate the magnitude
+complex_numbers = [2 + 3j, 1 - 2j, 4 + 4j]
+
+def magnitude(c):
+    return abs(c)**2 # Magnitude is calculated by taking absolute value first then squaring it
+
+magnitudes = map(magnitude, complex_numbers)
+print('Magnitudes:', list(magnitudes))
+print("Time Complexity: O(n)")
+print('#' * 80)
+
+
+import pyphen
+
+words = ['apple', 'banana', 'cherry']
+# Initialize the hyphenation dictionary
+dic   = pyphen.Pyphen(lang='en')
+
+# Use the hyphenation dictionary to count syllables of each word
+syllable_counts = map(lambda word: len(dic.inserted(word).split('-')), words)
+print("syllable_counts:", list(syllable_counts))
+print("Time Complexity: O(n)")
+print('#' * 80)
+
+# Mapping a list of strings to a custom object using a class method
+class Book:
+    def __init__(self, title, author, year):
+        self.title = title
+        self.author = author
+        self.year = year
+    @classmethod
+    def from_string(cls, book_str):
+        title, author, year = book_str.split(',')
+        return cls(title.strip(), author.strip(), int(year.strip()))
+
+book_strings = ['Python for Data Science, John Smith, 2020', 'Deep Learning, Alice Johnson, 2019']
+# Use the class method 'from_string' with map() to create Book objects
+books = map(Book.from_string, book_strings)
+for book in books: 
+    print(f"Title: {book.title}, Author: {book.author}, Year: {book.year}")
+
+print("Time Complexity: O(n)")
+print('#' * 80)
+
+# Using map() to convert a list of binary strings to integers
+binary_strings = ['101', '1100', '11111','100111111']
+# Convert each binary string to an integer using the int() function with map()
+integers = map(lambda x: int(x, 2), binary_strings)
+print("binary to Integers:",list(integers))
+print("Time Complexity: O(n)")
+print('#' * 80)

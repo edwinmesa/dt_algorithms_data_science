@@ -41,7 +41,7 @@ You can use the map() function in Python whenever you need to apply a specific o
 
 
 ### Common Examples:
-**square**, **operations_with_arrays**,**factorial**,**combined_zip**,****
+**square**, **operations_with_arrays**,**factorial**,**combined_zip**,**factorial**,**maps_zips**,**multiple_functions**,**celsius_to_fahrenheit**,**transformed_words**, **complex_numbers_magnitude**,**map_using_class**,
 
 ##  Loops 
 ### Big O Notation Complexity: O(n) - O(n^2) - O(Log n)
