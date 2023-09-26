@@ -110,3 +110,82 @@ numbers = [1, 2, 3, 4, 5]
 squared_numbers = [square(num) for num in numbers]
 print("squared nums:",squared_numbers)
 # Output: [1, 4, 9, 16, 25]
+print('#' * 80)
+
+import pandas as pd
+
+# Create a sample dataframe
+data = {'First Name': ['Alice', 'Bob', 'Charlie','Kila', 'Pola', 'Caro'],
+        'Last Name': ['Key', 'Kloi', 'Brown','Key', 'Kloi', 'Brown'],
+        'Email': ['Key@ki.com', 'Kloi@lo.com', 'Brown@gmail.com','Key@hotmail.com', 'Kloi@yahoo.es', 'Brown@pola.com'],
+        'Value':[115, 90, 85, 100, 105, 95],
+        'Sales':[1200, 900, 850, 1000, 1050, 950],
+        'Profit':[250, 300, 150, 260, 400, 300],
+        'Daily Sales':[30, 45, 70, 60, 15, 20],
+        'Age': [25, 30, 22, 10, 80, 5],
+        'Income': [100,70,90,50,30,98],
+        'Birthdate': ['1990-05-15', '1998-08-20', '1992-03-10','2005-05-15', '2018-08-20', '2012-03-10'],
+        'Hobby 1': ['Video Games', 'Music', 'Soccer', 'Music', 'Drive', 'Sing'],
+        'Hobby 2': ['Music', 'TV Shows', 'Soccer', 'Sing', 'Music', 'Drive'],
+        'Gender':['Female','Male','Male','Female','Male','Male']
+        }
+df = pd.DataFrame(data)
+
+# Use a list comprehension to create a new column 'AgePlusOne' by adding 1 to each age
+df['AgePlusOne'] = [age + 1 for age in df['Age']]
+
+print(df)
+print('#' * 80)
+df['AgeSquared'] = [age**2 for age in df['Age']]
+print(df)
+print('#' * 80)
+df['Gender'] = [1 if gender == 'Male' else 0 for gender in df['Gender']]
+print(df)
+print('#' * 80)
+df['Category'] = ['Young' if age < 30 else 'Middle-aged' if age < 50 else 'Senior' for age in df['Age']]
+print(df)
+print('#' * 80)
+df['Full Name'] = [f"{first} {last}" for first, last in zip(df['First Name'], df['Last Name'])]
+print(df)
+print('#' * 80)
+age_bins = [0, 18, 30, 50, float('inf')]
+age_labels = ['Child', 'Young Adult', 'Adult', 'Senior']
+df['Age Group'] = [age_labels[i] for i in pd.cut(df['Age'], bins=age_bins, labels=age_labels).cat.codes]
+print(df)
+print('#' * 80)
+mean_value = df['Value'].mean()
+df['Squared Difference'] = [(value - mean_value)**2 for value in df['Value']]
+print(df)
+print('#' * 80)
+hobbies = [hobby for sublist in df[['Hobby 1', 'Hobby 2']].values for hobby in sublist if pd.notna(hobby)]
+print(df)
+print('#' * 80)
+import pandas as pd
+start_date = pd.to_datetime('2023-01-01')
+end_date = pd.to_datetime('2023-01-10')
+date_range = [start_date + pd.DateOffset(days=i) for i in range((end_date - start_date).days + 1)]
+date_df = pd.DataFrame({'Date': date_range})
+print(date_df)
+print('#' * 80)
+min_income = df['Income'].min()
+max_income = df['Income'].max()
+df['Normalized Income'] = [(income - min_income) / (max_income - min_income) for income in df['Income']]
+print(df)
+print('#' * 80)
+from datetime import datetime
+today = datetime.today()
+df['Birthdate'] = pd.to_datetime(df['Birthdate'])
+df['Age'] = [(today - birthdate).days // 365 for birthdate in df['Birthdate']]
+print(df)
+print('#' * 80)
+mean_sales = df['Sales'].mean()
+df['Profit'] = [profit * 2 if sales > mean_sales else profit for sales, profit in zip(df['Sales'], df['Profit'])]
+print(df)
+print('#' * 80)
+df['Email Domain'] = [email.split('@')[1] for email in df['Email']]
+print(df)
+print('#' * 80)
+window_size = 7
+df['7-Day Rolling Avg'] = [df['Daily Sales'][i:i+window_size].mean() if i + window_size <= len(df) else None for i in range(len(df))]
+print(df)
+print('#' * 80)
