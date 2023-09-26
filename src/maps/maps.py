@@ -148,6 +148,7 @@ class Book:
         self.title = title
         self.author = author
         self.year = year
+        
     @classmethod
     def from_string(cls, book_str):
         title, author, year = book_str.split(',')
@@ -169,3 +170,4 @@ integers = map(lambda x: int(x, 2), binary_strings)
 print("binary to Integers:",list(integers))
 print("Time Complexity: O(n)")
 print('#' * 80)
+
